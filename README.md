@@ -1,30 +1,54 @@
-# New Project
+BetterMind – Mental Health Made Simple, Social & Fun
+🧩 The Problem
+Most students struggle with stress, anxiety, or focus issues, but:
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+Therapy is too expensive (₹3,000–₹6,000/session)
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/yashs-projects-2ad1ff71/v0-new-project-szqpkkenwqk)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/SzqpkkenWqk)
+It's hard to access or feels boring and clinical
 
-## Overview
+70%+ never get help because of stigma or cost
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+🎮 Our Solution: Gamified Mental Wellness App
+BetterMind makes therapy-like support engaging and affordable by turning mental health care into a game.
 
-## Deployment
+Key Features:
+✅ Daily tasks & streaks based on CBT (Cognitive Behavioral Therapy)
 
-Your project is live at:
+✅ Mini-games to build focus and manage anxiety
 
-**[https://vercel.com/yashs-projects-2ad1ff71/v0-new-project-szqpkkenwqk](https://vercel.com/yashs-projects-2ad1ff71/v0-new-project-szqpkkenwqk)**
+✅ Support groups for anxiety, ADHD, depression
 
-## Build your app
+✅ Mood tracker & habit dashboard
 
-Continue building your app on:
+✅ Peer feed & anonymous sharing
 
-**[https://v0.dev/chat/projects/SzqpkkenWqk](https://v0.dev/chat/projects/SzqpkkenWqk)**
+✅ Therapist-backed tools without expensive sessions
 
-## How It Works
+💡 Why It's Different
+🎯 First CBT-based gamified mental health app in India
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+👥 Social + anonymous healing, not isolated therapy
+
+🧠 Focused on student mental health + ADHD support
+
+💸 Just ₹199/month vs ₹5,000+ therapy sessions
+
+📈 Market & Vision
+India = 90M+ Gen Z users who want self-help tools
+
+Post-COVID mental health demand is booming
+
+We’re building a community, not just an app — a space where students grow together
+
+💰 How We Make Money
+Free basic version for everyone
+
+₹199/month for premium tools & groups
+
+Campus and corporate wellness plans
+
+Therapist tools (B2B)
+
+“Mental health should feel like progress, not punishment. BetterMind makes wellness rewarding.”
+
+Join us in reimagining how students take care of their minds.

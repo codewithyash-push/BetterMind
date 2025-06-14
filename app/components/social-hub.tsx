@@ -47,7 +47,7 @@ export default function SocialHub({ user }: SocialHubProps) {
         role: "user",
       },
       content:
-        "Just completed my 30th day of meditation! The breathing exercises in MindQuest really helped me stay consistent. Anyone else finding the mini-games helpful for anxiety management?",
+        "Just completed my 30th day of meditation! The breathing exercises in BetterMind really helped me stay consistent. Anyone else finding the mini-games helpful for anxiety management?",
       timestamp: "2024-01-15T10:30:00Z",
       likes: 15,
       comments: 8,
@@ -81,7 +81,7 @@ export default function SocialHub({ user }: SocialHubProps) {
         role: "user",
       },
       content:
-        "The Focus Flow game is addictive! 🎯 Just hit my personal best score. It's amazing how gaming can actually help with ADHD symptoms. Thanks MindQuest team!",
+        "The Focus Flow game is addictive! 🎯 Just hit my personal best score. It's amazing how gaming can actually help with ADHD symptoms. Thanks BetterMind team!",
       timestamp: "2024-01-15T08:45:00Z",
       likes: 18,
       comments: 5,
@@ -440,7 +440,7 @@ export default function SocialHub({ user }: SocialHubProps) {
                 <Trophy className="h-5 w-5 text-yellow-500" />
                 Community Leaderboard
               </CardTitle>
-              <CardDescription>See how you rank among the MindQuest community</CardDescription>
+              <CardDescription>See how you rank among the BetterMind community</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">

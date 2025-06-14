@@ -5,7 +5,20 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Brain, Heart, BookOpen, Timer, Target, Gamepad2, Flame, Star, Calendar, TrendingUp, Users } from "lucide-react"
+import {
+  Brain,
+  Heart,
+  BookOpen,
+  Timer,
+  Target,
+  Gamepad2,
+  Flame,
+  Star,
+  Calendar,
+  TrendingUp,
+  Users,
+  Bot,
+} from "lucide-react"
 import MoodTracker from "./components/mood-tracker"
 import EmotionalJournal from "./components/emotional-journal"
 import ADHDTimer from "./components/adhd-timer"
@@ -14,6 +27,7 @@ import MiniGames from "./components/mini-games"
 import ProgressDashboard from "./components/progress-dashboard"
 import AuthComponent from "./components/auth-component"
 import SocialHub from "./components/social-hub"
+import AIAssistant from "./components/ai-assistant"
 
 export default function TherapyPlatform() {
   const [currentStreak, setCurrentStreak] = useState(7)
@@ -29,7 +43,7 @@ export default function TherapyPlatform() {
   // Add useEffect to check authentication
   useEffect(() => {
     const checkAuth = () => {
-      const userData = localStorage.getItem("mindquest_user")
+      const userData = localStorage.getItem("bettermind_user")
       if (userData) {
         setUser(JSON.parse(userData))
       }
@@ -44,7 +58,7 @@ export default function TherapyPlatform() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <Brain className="h-12 w-12 mx-auto mb-4 text-blue-600 animate-spin" />
-          <p>Loading MindQuest...</p>
+          <p>Loading BetterMind...</p>
         </div>
       </div>
     )
@@ -111,7 +125,7 @@ export default function TherapyPlatform() {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="dashboard" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-6 lg:w-fit lg:grid-cols-6">
+          <TabsList className="grid w-full grid-cols-7 lg:w-fit lg:grid-cols-7">
             <TabsTrigger value="dashboard" className="flex items-center gap-2">
               <TrendingUp className="h-4 w-4" />
               <span className="hidden sm:inline">Dashboard</span>
@@ -139,6 +153,10 @@ export default function TherapyPlatform() {
             <TabsTrigger value="social" className="flex items-center gap-2">
               <Users className="h-4 w-4" />
               <span className="hidden sm:inline">Social</span>
+            </TabsTrigger>
+            <TabsTrigger value="ai" className="flex items-center gap-2">
+              <Bot className="h-4 w-4" />
+              <span className="hidden sm:inline">AI Assistant</span>
             </TabsTrigger>
           </TabsList>
 
@@ -168,6 +186,9 @@ export default function TherapyPlatform() {
 
           <TabsContent value="social">
             <SocialHub user={user} />
+          </TabsContent>
+          <TabsContent value="ai">
+            <AIAssistant user={user} />
           </TabsContent>
         </Tabs>
         {/* Footer */}

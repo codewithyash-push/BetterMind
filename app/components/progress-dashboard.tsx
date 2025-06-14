@@ -3,7 +3,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
-import { Trophy, Target, Calendar, TrendingUp, Award, Zap, Heart, Brain } from "lucide-react"
+import { Trophy, Target, Calendar, TrendingUp, Award, Zap, Heart, Brain, Users, MessageCircle } from "lucide-react"
 
 export default function ProgressDashboard() {
   const achievements = [
@@ -12,7 +12,7 @@ export default function ProgressDashboard() {
     { name: "Deep Thinker", description: "Write 10 journal entries", earned: true, icon: Brain },
     { name: "Focus Master", description: "Complete 50 timer sessions", earned: false, icon: Zap },
     { name: "Mission Accomplished", description: "Complete 25 daily missions", earned: false, icon: Target },
-    { name: "Game Champion", description: "Play mini-games 20 times", earned: false, icon: Trophy },
+    { name: "Community Helper", description: "Help others in support groups", earned: false, icon: Users },
   ]
 
   const weeklyStats = [
@@ -23,6 +23,13 @@ export default function ProgressDashboard() {
     { day: "Fri", mood: 9, activities: 4 },
     { day: "Sat", mood: 8, activities: 2 },
     { day: "Sun", mood: 7, activities: 3 },
+  ]
+
+  const recentActivities = [
+    { activity: "Completed breathing exercise", time: "2 hours ago", points: 15 },
+    { activity: "Logged mood (8/10)", time: "4 hours ago", points: 10 },
+    { activity: "Wrote journal entry", time: "Yesterday", points: 15 },
+    { activity: "Helped in support group", time: "Yesterday", points: 20 },
   ]
 
   return (
@@ -73,6 +80,32 @@ export default function ProgressDashboard() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Recent Activity */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <MessageCircle className="h-5 w-5" />
+            Recent Activity
+          </CardTitle>
+          <CardDescription>Your latest therapeutic activities and achievements</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-3">
+            {recentActivities.map((activity, index) => (
+              <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                <div>
+                  <div className="font-medium text-sm">{activity.activity}</div>
+                  <div className="text-xs text-muted-foreground">{activity.time}</div>
+                </div>
+                <Badge variant="secondary" className="text-xs">
+                  +{activity.points} pts
+                </Badge>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Weekly Progress Chart */}
       <Card>

@@ -28,6 +28,7 @@ import ProgressDashboard from "./components/progress-dashboard"
 import AuthComponent from "./components/auth-component"
 import SocialHub from "./components/social-hub"
 import AIAssistant from "./components/ai-assistant"
+import OnboardingTour from "./components/onboarding-tour"
 
 export default function TherapyPlatform() {
   const [currentStreak, setCurrentStreak] = useState(7)
@@ -39,18 +40,47 @@ export default function TherapyPlatform() {
   // Add user state and authentication check at the top of the component
   const [user, setUser] = useState<any>(null)
   const [loading, setLoading] = useState(true)
+  const [showTour, setShowTour] = useState(false)
 
-  // Add useEffect to check authentication
+  // Add useEffect to check authentication and tour status
   useEffect(() => {
     const checkAuth = () => {
       const userData = localStorage.getItem("bettermind_user")
+      const tourCompleted = localStorage.getItem("bettermind_tour_completed")
+
       if (userData) {
-        setUser(JSON.parse(userData))
+        const user = JSON.parse(userData)
+        setUser(user)
+
+        // Show tour for new users who haven't completed it
+        if (user.isNewUser && !tourCompleted) {
+          setShowTour(true)
+        }
       }
       setLoading(false)
     }
     checkAuth()
   }, [])
+
+  const handleTourComplete = () => {
+    setShowTour(false)
+    // Update user to no longer be new
+    if (user) {
+      const updatedUser = { ...user, isNewUser: false }
+      setUser(updatedUser)
+      localStorage.setItem("bettermind_user", JSON.stringify(updatedUser))
+    }
+  }
+
+  const handleTourSkip = () => {
+    setShowTour(false)
+    // Update user to no longer be new
+    if (user) {
+      const updatedUser = { ...user, isNewUser: false }
+      setUser(updatedUser)
+      localStorage.setItem("bettermind_user", JSON.stringify(updatedUser))
+    }
+  }
 
   // Add conditional rendering for authentication
   if (loading) {
@@ -70,8 +100,11 @@ export default function TherapyPlatform() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      {/* Onboarding Tour */}
+      {showTour && <OnboardingTour onComplete={handleTourComplete} onSkip={handleTourSkip} />}
+
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b sticky top-0 z-50">
+      <header className="bg-white/80 backdrop-blur-sm border-b sticky top-0 z-50" data-tour="header">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -102,7 +135,7 @@ export default function TherapyPlatform() {
 
       <main className="container mx-auto px-4 py-8">
         {/* Daily Progress Overview */}
-        <Card className="mb-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+        <Card className="mb-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white" data-tour="progress-card">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Calendar className="h-5 w-5" />
@@ -126,35 +159,35 @@ export default function TherapyPlatform() {
         {/* Main Content Tabs */}
         <Tabs defaultValue="dashboard" className="space-y-6">
           <TabsList className="grid w-full grid-cols-7 lg:w-fit lg:grid-cols-7">
-            <TabsTrigger value="dashboard" className="flex items-center gap-2">
+            <TabsTrigger value="dashboard" className="flex items-center gap-2" data-tour="dashboard-tab">
               <TrendingUp className="h-4 w-4" />
               <span className="hidden sm:inline">Dashboard</span>
             </TabsTrigger>
-            <TabsTrigger value="mood" className="flex items-center gap-2">
+            <TabsTrigger value="mood" className="flex items-center gap-2" data-tour="mood-tab">
               <Heart className="h-4 w-4" />
               <span className="hidden sm:inline">Mood</span>
             </TabsTrigger>
-            <TabsTrigger value="journal" className="flex items-center gap-2">
+            <TabsTrigger value="journal" className="flex items-center gap-2" data-tour="journal-tab">
               <BookOpen className="h-4 w-4" />
               <span className="hidden sm:inline">Journal</span>
             </TabsTrigger>
-            <TabsTrigger value="timer" className="flex items-center gap-2">
+            <TabsTrigger value="timer" className="flex items-center gap-2" data-tour="timer-tab">
               <Timer className="h-4 w-4" />
               <span className="hidden sm:inline">Timer</span>
             </TabsTrigger>
-            <TabsTrigger value="missions" className="flex items-center gap-2">
+            <TabsTrigger value="missions" className="flex items-center gap-2" data-tour="missions-tab">
               <Target className="h-4 w-4" />
               <span className="hidden sm:inline">Missions</span>
             </TabsTrigger>
-            <TabsTrigger value="games" className="flex items-center gap-2">
+            <TabsTrigger value="games" className="flex items-center gap-2" data-tour="games-tab">
               <Gamepad2 className="h-4 w-4" />
               <span className="hidden sm:inline">Games</span>
             </TabsTrigger>
-            <TabsTrigger value="social" className="flex items-center gap-2">
+            <TabsTrigger value="social" className="flex items-center gap-2" data-tour="social-tab">
               <Users className="h-4 w-4" />
               <span className="hidden sm:inline">Social</span>
             </TabsTrigger>
-            <TabsTrigger value="ai" className="flex items-center gap-2">
+            <TabsTrigger value="ai" className="flex items-center gap-2" data-tour="ai-tab">
               <Bot className="h-4 w-4" />
               <span className="hidden sm:inline">AI Assistant</span>
             </TabsTrigger>

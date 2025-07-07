@@ -31,7 +31,6 @@ Key Features:
 
 🧠 Focused on student mental health + ADHD support
 
-💸 Just ₹199/month vs ₹5,000+ therapy sessions
 
 📈 Market & Vision
 India = 90M+ Gen Z users who want self-help tools
@@ -43,7 +42,6 @@ We’re building a community, not just an app — a space where students grow to
 💰 How We Make Money
 Free basic version for everyone
 
-₹199/month for premium tools & groups
 
 Campus and corporate wellness plans
 
